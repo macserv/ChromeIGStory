@@ -26,7 +26,6 @@ import LiveVideo from '../live/LiveVideo';
 import SearchPage from '../search/SearchPage';
 import InstagramApi from '../../../../../utils/InstagramApi';
 import {getStorySlide} from '../../../../../utils/Utils';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 import $ from 'jquery';
 
 import "../../../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
@@ -58,7 +57,6 @@ class App extends Component {
 
   handleTabChange = (value) => {
     this.setState({currentTabIndex: value});
-    AnalyticsUtil.track(tabNames[value] + " Tab Selected");
   };
 
   componentDidMount() {
@@ -80,10 +78,7 @@ class App extends Component {
     }
 
     if(this.props.isFullPopup) {
-      AnalyticsUtil.track("Popout Opened");
       this.setState({isFullPopup: true});
-    } else {
-      AnalyticsUtil.track("Popup Opened");
     }
 
     // fetch all the data from the Instagram API and dispatch it to the store
@@ -241,7 +236,7 @@ class App extends Component {
                 style={{backgroundColor: 'transparent', borderRadius: '0px', marginLeft: '15px'}}
                 />
               <ListItem
-                primaryText="Chrome IG Story"
+                primaryText="Web IG Story"
                 secondaryText="by Alec Garcia"
                 style={{paddingLeft: '10px', paddingTop: '15px', cursor: 'pointer'}}
                 onClick={()=> window.open('https://github.com/CaliAlec/ChromeIGStory')}
@@ -257,7 +252,6 @@ class App extends Component {
                       currentStory: null,
                       isSearchActive: true
                     });
-                    AnalyticsUtil.track("Search Button Clicked");
                   }}>
                   <ActionSearchIcon color={TAB_TEXT_COLOR_DARK_GRAY}/>
                 </IconButton>
@@ -268,7 +262,6 @@ class App extends Component {
                   tooltipPosition="bottom-center"
                   onClick={()=> {
                     this.props.dispatch({type: 'launch-popup'});
-                    AnalyticsUtil.track("Popout Button Clicked");
                   }}>
                   <OpenInNewIcon color={TAB_TEXT_COLOR_DARK_GRAY}/>
                 </IconButton>

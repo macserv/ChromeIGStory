@@ -72,6 +72,7 @@ gulp.task('clean', (cb) => {
 gulp.task('build', ['copy-manifest', 'copy-static', 'popup-js', 'popup-html', 'event-js', 'content-js']);
 
 gulp.task('watch', ['default'], () => {
+  gulp.watch('manifest.json', ['build']);
   gulp.watch('popup/**/*', ['build']);
   gulp.watch('content/**/*', ['build']);
   gulp.watch('event/**/*', ['build']);

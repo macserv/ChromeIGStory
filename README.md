@@ -1,7 +1,5 @@
-# Chrome IG Story
-Chrome extension that lets you view your friend's Instagram Stories in the browser.
-
-<a href="https://chrome.google.com/webstore/detail/chrome-ig-story/bojgejgifofondahckoaahkilneffhmf"><img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png"/></a>
+# Web IG Story
+Web extension that lets you view your friend's Instagram Stories in the browser.
 
 <img src="https://cloud.githubusercontent.com/assets/2003684/23597569/db7c76cc-01e8-11e7-843a-8886852c4b87.png"/>
 
@@ -9,8 +7,8 @@ Chrome extension that lets you view your friend's Instagram Stories in the brows
 
 <img src="https://cloud.githubusercontent.com/assets/2003684/23597607/2b121c3c-01e9-11e7-8745-bc7bbd15a86c.png"/>
 
-### How does Chrome IG Story work?
-Chrome IG Story injects your friend's Instagram Stories above your feed on the Instagram.com desktop website just like it appears in the Instagram mobile app.
+### How does Web IG Story work?
+Web IG Story injects your friend's Instagram Stories above your feed on the Instagram.com desktop website just like it appears in the Instagram mobile app.
 
 Click on the icon of the Instagram user to view their story. You can also right click the icon to download their story.
 
@@ -23,7 +21,7 @@ Right click the icon of the Instagram user to download their Story.
 You can see Suggested Stories if you go to the Explore feed.
 
 ### Why does the profile picture border not turn gray after I view a Story?
-Currently, Chrome IG Story does not mark the Story as being "seen", so all new content will remain new if you view it with this extension. If you view that user's Story on your phone and refresh the page, the new content will be gray.
+Currently, Web IG Story does not mark the Story as being "seen", so all new content will remain new if you view it with this extension. If you view that user's Story on your phone and refresh the page, the new content will be gray.
 
 ### Can I share an image/video from someone's Story?
 
@@ -50,9 +48,9 @@ In order to run the extension locally, follow the steps below.
 gulp watch
 
 ```
-* A /build folder will be generated. Visit chrome://extensions/ in your browser, enable Developer mode, and drag the build folder onto the page to install the extension.
+* A /build folder will be generated.  Open "about:debugging" in Firefox, click "Load Temporary Add-on" and select any file in that /build folder.
 
-* Every time you make a change in the code, the build folder will be regenerated on the fly, but you must go back to chrome://extensions/ and reload the extension to see any changes.
+* Every time you make a change in the code, the build folder will be regenerated on the fly, but you must go back to "about:debugging" and reload the extension to see any changes.
 
 # License
 

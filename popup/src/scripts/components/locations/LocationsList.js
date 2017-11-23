@@ -9,7 +9,6 @@ import ShareIcon from 'material-ui/svg-icons/social/share';
 import CircularProgress from 'material-ui/CircularProgress';
 import InstagramApi from '../../../../../utils/InstagramApi';
 import {downloadStory, getStorySlide, getTimeElapsed} from '../../../../../utils/Utils';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 import {countriesList} from '../../../../../static/js/locationData.js'
 
 let SelectableList = makeSelectable(List);
@@ -63,7 +62,6 @@ class LocationsList extends Component {
   
   onShareStory(index) {
     var selectedStory = this.state.stories[index];
-    AnalyticsUtil.track("Share Story", {locationName: selectedStory.name, locationId: selectedStory.locationId});
     window.open('https://watchmatcha.com/location/' + selectedStory.locationId);
   }
   

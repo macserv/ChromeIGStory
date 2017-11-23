@@ -15,7 +15,6 @@ import HashtagSearchTab from '../search/HashtagSearchTab';
 import LocationSearchTab from '../search/LocationSearchTab';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Paper from 'material-ui/Paper';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 import {
   TAB_TEXT_COLOR_DARK_GRAY,
   TAB_TEXT_COLOR_LIGHT_GRAY,
@@ -47,7 +46,6 @@ class SearchPage extends Component {
 
   handleTabChange = (value) => {
     this.setState({currentTabIndex: value});
-    AnalyticsUtil.track("Search " + tabNames[value] + " Tab Selected", {"query": this.state.searchQuery});
   };
 
   handleSplashSearchKeyPress(e) {
@@ -56,12 +54,6 @@ class SearchPage extends Component {
       var searchQuery = this.refs.splashSearchQuery.getValue();
       if(searchQuery.length === 0) {
         return;
-      }
-      if(searchQuery !== itself.state.searchQuery) {
-        AnalyticsUtil.track("Search", {
-          type: tabNames[itself.state.currentTabIndex],
-          query: searchQuery
-        });
       }
       itself.setState({
         isSearchResultsActive: true,
@@ -75,12 +67,6 @@ class SearchPage extends Component {
     if(searchQuery.length === 0) {
       return;
     }
-    if(searchQuery !== this.state.searchQuery) {
-      AnalyticsUtil.track("Search", {
-        type: tabNames[this.state.currentTabIndex],
-        query: searchQuery
-      });
-    }
     this.setState({
       isSearchResultsActive: true,
       searchQuery: searchQuery
@@ -91,12 +77,6 @@ class SearchPage extends Component {
     var searchQuery = this.refs.searchQuery.getValue();
     if(searchQuery.length === 0) {
       return;
-    }
-    if(searchQuery !== this.state.searchQuery) {
-      AnalyticsUtil.track("Search", {
-        type: tabNames[this.state.currentTabIndex],
-        query: searchQuery
-      });
     }
     this.setState({
       searchQuery: searchQuery
@@ -109,12 +89,6 @@ class SearchPage extends Component {
       if(searchQuery.length === 0) {
         return;
       }
-      if(searchQuery !== this.state.searchQuery) {
-        AnalyticsUtil.track("Search", {
-          type: tabNames[this.state.currentTabIndex],
-          query: searchQuery
-        });
-      }
       this.setState({
         searchQuery: this.refs.searchQuery.getValue()
       });
@@ -122,7 +96,6 @@ class SearchPage extends Component {
   }
   
   onViewStoryMap() {
-    AnalyticsUtil.track("View Story Map Button Clicked");
     window.open('https://watchmatcha.com/');
   }
 

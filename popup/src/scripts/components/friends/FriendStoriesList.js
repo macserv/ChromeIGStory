@@ -9,7 +9,6 @@ import DownloadIcon from 'material-ui/svg-icons/file/file-download';
 import ShareIcon from 'material-ui/svg-icons/social/share';
 import CircularProgress from 'material-ui/CircularProgress';
 import {fetchStory, getTimeElapsed} from '../../../../../utils/Utils';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 
 let SelectableList = makeSelectable(List);
 
@@ -31,7 +30,6 @@ class FriendStoriesList extends Component {
     this.setState({
       selectedIndex: index,
     });
-    AnalyticsUtil.track("Story List Item Clicked", AnalyticsUtil.getStoryObject(selectedStory));
   }
   
   onDownloadStory(index) {
@@ -49,7 +47,6 @@ class FriendStoriesList extends Component {
   
   onShareStory(index) {
     var selectedStory = this.props.friendStories.tray[index];
-    AnalyticsUtil.track("Share Story", AnalyticsUtil.getStoryObject(selectedStory));
     window.open('https://watchmatcha.com/user/' + selectedStory.user.username);
   }
   

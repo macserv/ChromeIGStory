@@ -7,7 +7,6 @@ import DownloadIcon from 'material-ui/svg-icons/file/file-download';
 import CircularProgress from 'material-ui/CircularProgress';
 import InstagramApi from '../../../../../utils/InstagramApi';
 import {fetchStory} from '../../../../../utils/Utils';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 
 let SelectableList = makeSelectable(List);
 
@@ -28,14 +27,6 @@ class HashtagSearchList extends Component {
     });
     this.setState({
       selectedIndex: index,
-    });
-    AnalyticsUtil.track("Search List Item Clicked",
-    {
-      type: "hashtag",
-      result: {
-        id: selectedResult.id,
-        name: selectedResult.name
-      }
     });
   }
 

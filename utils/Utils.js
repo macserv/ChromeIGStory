@@ -3,7 +3,6 @@ import JSZip from 'jszip';
 import JSZipUtils from 'jszip-utils';
 import FileSaver from 'file-saver';
 import moment from 'moment';
-import AnalyticsUtil from './AnalyticsUtil';
 import InstagramApi from './InstagramApi';
 import XLinkController from "../node_modules/dashjs/src/streaming/controllers/XlinkController.js";
 import ErrorHandler from "../node_modules/dashjs/src/streaming/utils/ErrorHandler.js";
@@ -119,7 +118,6 @@ export function downloadStory(trayItem, callback) {
   zip.generateAsync({type:"blob"})
   .then(function(content) {
     FileSaver.saveAs(content, getZipFileName(trayItem));
-    AnalyticsUtil.track("Download Story", AnalyticsUtil.getStoryObject(trayItem));
     if(callback) {
       callback();
     }

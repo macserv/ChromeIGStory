@@ -9,7 +9,6 @@ import Avatar from 'material-ui/Avatar';
 import VisibilityIcon from 'material-ui/svg-icons/action/visibility';
 import DownloadIcon from 'material-ui/svg-icons/file/file-download';
 import {downloadStory, isVideo} from '../../../../../utils/Utils';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 
 import {
   TAB_TEXT_COLOR_LIGHT_GRAY
@@ -211,13 +210,11 @@ onCloseFullscreenStoryButtonClicked() {
 onStoryAuthorUsernameClicked() {
   var authorUsername = this.state.currentStoryItem.user.username;
   window.open('https://www.instagram.com/' + authorUsername + '/');
-  AnalyticsUtil.track("Story Author Username Clicked", {username: authorUsername});
 }
 
 onStoryViewerUsernameClicked(index) {
   var storyViewerUsername = this.state.currentStoryItem.viewers[index].username;
   window.open('https://www.instagram.com/' +  + '/');
-  AnalyticsUtil.track("Story Viewer Username Clicked", {username: storyViewerUsername});
 }
 
 onDownloadStory() {

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {GridList, GridTile} from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
 import VisibilityIcon from 'material-ui/svg-icons/action/visibility';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 import $ from 'jquery';
 
 import {TAB_CONTAINER_HEIGHT} from '../../../../../utils/Constants';
@@ -30,13 +29,11 @@ class LiveTab extends Component {
   selectLiveVideo(index) {
     var selectedLiveVideo = this.props.topLiveVideos[index];
     this.props.onSelectStory(selectedLiveVideo);
-    AnalyticsUtil.track("Live Video Item Clicked", AnalyticsUtil.getLiveVideoObject(selectedLiveVideo));
   }
   
   onStoryAuthorUsernameClicked(index) {
     var authorUsername = this.props.topLiveVideos[index].broadcast_owner.username;
     window.open('https://www.instagram.com/' + authorUsername + '/');
-    AnalyticsUtil.track("Live Video Author Username Clicked", {username: authorUsername});
   }
   
   render() {

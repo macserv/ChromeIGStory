@@ -7,7 +7,6 @@ import $ from 'jquery';
 import moment from 'moment';
 import InstagramApi from '../../../../../utils/InstagramApi';
 import VisibilityIcon from 'material-ui/svg-icons/action/visibility';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 import {getLiveVideoId, getLiveVideoManifestObject} from '../../../../../utils/Utils';
 
 class LiveVideo extends Component {
@@ -111,14 +110,12 @@ class LiveVideo extends Component {
   onStoryAuthorUsernameClicked() {
     var authorUsername = this.state.liveVideoItem.broadcast_owner.username;
     window.open('https://www.instagram.com/' + authorUsername + '/');
-    AnalyticsUtil.track("Live Video Author Username Clicked", {username: authorUsername});
   }
   
   onChatMesssageAuthorUsernameClicked(index) {
     var chatMessage = this.state.chatMessagesList[index];
     var chatMessageAuthorUsername = (this.state.isLiveVideoReplay) ? chatMessage.comment.user.username : chatMessage.user.username;
     window.open('https://www.instagram.com/' + chatMessageAuthorUsername + '/');
-    AnalyticsUtil.track("Live Video Comment Author Username Clicked", {username: chatMessageAuthorUsername});
   }
   
   render() {

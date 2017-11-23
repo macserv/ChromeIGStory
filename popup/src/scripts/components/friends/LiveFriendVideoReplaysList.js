@@ -13,7 +13,6 @@ import VideoLibraryIcon from 'material-ui/svg-icons/av/video-library';
 import MusicLibraryIcon from 'material-ui/svg-icons/av/library-music';
 import LiveVideo from '../live/LiveVideo';
 import {getTimeElapsed} from '../../../../../utils/Utils';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 import LiveVideoReplayDownloadDialog from './LiveVideoReplayDownloadDialog';
 
 let SelectableList = makeSelectable(List);
@@ -34,7 +33,6 @@ class LiveFriendVideoReplaysList extends Component {
     this.setState({
       selectedIndex: index,
     });
-    AnalyticsUtil.track("Story List Item Clicked", AnalyticsUtil.getStoryObject(selectedStory));
   }
   
   onDownloadStory(index) {
@@ -46,7 +44,6 @@ class LiveFriendVideoReplaysList extends Component {
   
   onShareStory(index) {
     var selectedStory = this.props.friendStories.post_live.post_live_items[index].broadcasts[0];
-    AnalyticsUtil.track("Share Story", AnalyticsUtil.getStoryObject(selectedStory));
     window.open('https://watchmatcha.com/user/' + selectedStory.broadcast_owner.username);
   }
   

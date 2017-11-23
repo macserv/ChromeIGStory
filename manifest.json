@@ -1,16 +1,15 @@
 {
-  "name": "Chrome IG Story",
+  "name": "Web IG Story",
   "description": "View and download Instagram Stories from your browser.",
   "version": "2.1.7",
   "manifest_version": 2,
   "background": {
     "scripts": [
       "js/event.js"
-    ],
-    "persistent": true
+    ]
   },
   "browser_action": {
-    "default_title": "Chrome IG Story",
+    "default_title": "Web IG Story",
     "default_popup": "html/popup.html"
   },
   "permissions": [
@@ -34,6 +33,6 @@
     "html/*"
   ],
   "icons": { "16": "img/icon-16.png", "128": "img/icon-128.png" },
-  "incognito": "split",
-  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-3.0.1-min.gz.js 'unsafe-eval'; object-src 'self'"
+  "incognito": "spanning",
+  "content_security_policy": "script-src 'self' https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-3.0.1-min.gz.js 'unsafe-eval'; object-src 'self'"
 }

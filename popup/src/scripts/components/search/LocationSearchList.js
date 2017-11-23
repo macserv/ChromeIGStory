@@ -8,7 +8,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import PlaceIcon from 'material-ui/svg-icons/maps/place';
 import InstagramApi from '../../../../../utils/InstagramApi';
 import {fetchStory} from '../../../../../utils/Utils';
-import AnalyticsUtil from '../../../../../utils/AnalyticsUtil';
 
 let SelectableList = makeSelectable(List);
 
@@ -29,17 +28,6 @@ class LocationSearchList extends Component {
     });
     this.setState({
       selectedIndex: index,
-    });
-    AnalyticsUtil.track("Search List Item Clicked",
-    {
-      type: "location",
-      result: {
-        title: selectedResult.title,
-        location: {
-          id: location.pk,
-          facebook_places_id: location.facebook_places_id
-        }
-      }
     });
   }
 
